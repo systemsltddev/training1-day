@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="7e9143a6-c8bf-4563-9a7e-bc786d4ebd75" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="taining-day1Flow" doc:id="cd088486-227f-40a6-b402-d8729a00e11e" >
+		<http:listener doc:name="Listener" doc:id="1728cf53-8397-4636-884c-6b5ee37a5be2" config-ref="HTTP_Listener_config" path="/"/>
+		<set-payload value='#[%dw 2.0&#10;output application/json&#10;---&#10;{&#10;	message: "Hello world."&#10;}]' doc:name="Set Payload" doc:id="a50637c4-ce2c-46ca-baeb-99f5a02b7251" />
+	</flow>
+</mule>

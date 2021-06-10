@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="taining-day1-test-suite.xml" />
+	<munit:test name="taining-day1-test-suite-taining-day1FlowTest" doc:id="233c442d-08b0-4b0e-abef-83c657fd4af0" description="Test">
+		<munit:execution >
+			<munit:set-event doc:name="Set Event" doc:id="66efbc5a-e21f-4707-982c-f93a3ca48f32" />
+			<flow-ref doc:name="Flow-ref to taining-day1Flow" doc:id="dd25b1cb-147b-4602-b69a-0e1b280ef377" name="taining-day1Flow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="68ae1e8f-3fc7-4ba0-9e85-1f04289e3dd9" message="Media type is not application/json" expression="#[payload]" is="#[MunitTools::withMediaType('application/json')]"/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
